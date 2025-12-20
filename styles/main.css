@@ -1298,33 +1298,188 @@ body:not(.home) .social-btn:hover svg {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 42px;
-        letter-spacing: 4px;
+    /* Container - Mobil için margin-left'i kaldır */
+    .container {
+        margin-left: 0;
+        padding: 0 15px;
     }
     
-    .hero-description {
-        font-size: 16px;
-        padding: 0 20px;
+    /* Header - Mobil düzeni */
+    .header {
+        padding: 15px 0;
+    }
+    
+    .header-content {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .logo {
+        font-size: 22px;
+        letter-spacing: 1px;
+        gap: 10px;
+    }
+    
+    .logo span {
+        font-size: 18px;
+    }
+    
+    .social-btns {
+        gap: 8px;
+    }
+    
+    .social-btn {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .social-btn svg {
+        width: 14px;
+        height: 14px;
     }
     
     .nav {
-        gap: 20px;
+        gap: 15px;
+        flex-wrap: wrap;
+        font-size: 14px;
     }
     
-    .sale-content,
-    .about-grid,
-    .features-content {
-        grid-template-columns: 1fr;
+    .header-right {
+        gap: 15px;
+    }
+    
+    /* Hero Section - Mobil optimizasyonu */
+    .hero {
+        min-height: 70vh;
+        padding-top: 80px;
+        padding-bottom: 40px;
+    }
+    
+    .hero-content {
+        padding: 20px 15px;
+    }
+    
+    .hero-title {
+        font-size: 38px;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+        line-height: 1.1;
+    }
+    
+    .hero-description {
+        font-size: 15px;
+        padding: 0 10px;
+        margin-bottom: 30px;
+        line-height: 1.5;
+    }
+    
+    .hero-buttons {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+    
+    .btn {
+        padding: 12px 25px;
+        font-size: 13px;
+    }
+    
+    /* Featured Products - Mobil */
+    .featured-products {
+        padding: 50px 0;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 30px;
     }
     
     .section-header h2 {
+        font-size: 26px;
+        letter-spacing: 1px;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .product-image {
+        height: 250px;
+    }
+    
+    .product-info {
+        padding: 15px;
+    }
+    
+    .product-name {
+        font-size: 15px;
+        min-height: auto;
+    }
+    
+    /* Sale Section - Mobil */
+    .sale-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .sale-image {
+        height: 300px;
+    }
+    
+    .sale-info h3 {
+        font-size: 24px;
+    }
+    
+    .sale-description {
+        font-size: 14px;
+    }
+    
+    /* Features Section - Mobil */
+    .features-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .features-text h2 {
         font-size: 28px;
+    }
+    
+    .features-text h3 {
+        font-size: 20px;
+    }
+    
+    .features-text p {
+        font-size: 14px;
+    }
+    
+    /* About Page - Mobil */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .about-text h2 {
+        font-size: 28px;
+    }
+    
+    .about-text h3 {
+        font-size: 20px;
+    }
+    
+    .about-text p {
+        font-size: 14px;
+    }
+    
+    .page-header {
+        padding: 30px 0 20px;
     }
     
     .page-header-content {
         flex-direction: column;
         align-items: flex-start;
+        gap: 20px;
     }
     
     .page-header-text {
@@ -1333,74 +1488,352 @@ body:not(.home) .social-btn:hover svg {
     }
     
     .page-header-contact {
-        gap: 15px;
+        gap: 12px;
         width: 100%;
         align-items: flex-start;
     }
     
     .contact-item {
         justify-content: flex-start;
+        font-size: 14px;
+        padding: 6px 10px;
     }
     
     .page-header h1 {
-        font-size: 36px;
+        font-size: 32px;
+        letter-spacing: 2px;
+    }
+    
+    .page-header p {
+        font-size: 16px;
+    }
+    
+    /* Footer - Mobil */
+    .footer {
+        padding: 40px 0 120px;
     }
     
     .footer-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
     
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 15px;
+        text-align: center;
+        font-size: 11px;
     }
     
+    /* Product Detail - Mobil */
     .product-detail-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
     }
     
     .product-actions {
         flex-direction: column;
+        gap: 12px;
     }
     
     .product-info-box {
         grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    /* Shop Filters - Mobil */
+    .shop-filters {
+        padding: 30px 0;
+    }
+    
+    .filter-buttons {
+        gap: 10px;
+    }
+    
+    .filter-btn {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+    
+    .shop-products {
+        padding: 40px 0;
+    }
+    
+    /* View Product Button - Mobil */
+    .product-card .view-product-btn {
+        padding: 8px 20px;
+        font-size: 12px;
+        bottom: 8px;
+    }
+    
+    /* Feature Cards - Mobil */
+    .feature-card {
+        padding: 30px 20px;
+    }
+    
+    .feature-card h3 {
+        font-size: 18px;
+    }
+    
+    .feature-card p {
+        font-size: 14px;
+    }
+    
+    /* Announcement Bar - Mobil */
+    .announcement-bar {
+        font-size: 12px;
+        padding: 8px 0;
+    }
+    
+    /* Features Grid - Mobil */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Newsletter Form - Mobil */
+    .newsletter-form {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .newsletter-form input {
+        width: 100%;
+    }
+    
+    .newsletter-form .btn {
+        width: 100%;
     }
 }
 
 @media (max-width: 480px) {
+    /* Container - Küçük ekranlar için */
+    .container {
+        padding: 0 12px;
+    }
+    
+    /* Header - Küçük ekranlar */
+    .header {
+        padding: 12px 0;
+    }
+    
+    .logo {
+        font-size: 18px;
+    }
+    
+    .logo span {
+        font-size: 16px;
+    }
+    
+    .nav {
+        gap: 10px;
+        font-size: 13px;
+    }
+    
+    /* Hero Section - Küçük ekranlar */
+    .hero {
+        min-height: 60vh;
+        padding-top: 70px;
+        padding-bottom: 30px;
+    }
+    
     .hero-title {
-        font-size: 32px;
+        font-size: 28px;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
     }
     
     .hero-description {
         font-size: 14px;
-        padding: 0 15px;
+        padding: 0 8px;
+        margin-bottom: 25px;
     }
     
     .hero-buttons {
         flex-direction: column;
         width: 100%;
+        gap: 10px;
     }
     
     .btn {
         width: 100%;
+        padding: 14px 20px;
+        font-size: 12px;
+    }
+    
+    /* Featured Products - Küçük ekranlar */
+    .featured-products {
+        padding: 40px 0;
+    }
+    
+    .section-header h2 {
+        font-size: 22px;
     }
     
     .products-grid {
         grid-template-columns: 1fr !important;
+        gap: 20px;
     }
     
+    .product-image {
+        height: 280px;
+    }
+    
+    .product-info {
+        padding: 15px;
+    }
+    
+    .product-name {
+        font-size: 14px;
+    }
+    
+    /* Sale Section - Küçük ekranlar */
+    .sale-image {
+        height: 250px;
+    }
+    
+    .sale-info h3 {
+        font-size: 20px;
+    }
+    
+    .sale-description {
+        font-size: 13px;
+    }
+    
+    .sale-price {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .original-price {
+        font-size: 20px;
+    }
+    
+    .current-price {
+        font-size: 28px;
+    }
+    
+    /* Features Section - Küçük ekranlar */
+    .features-text h2 {
+        font-size: 24px;
+    }
+    
+    .features-text h3 {
+        font-size: 18px;
+    }
+    
+    /* About Page - Küçük ekranlar */
+    .about-text h2 {
+        font-size: 24px;
+    }
+    
+    .about-text h3 {
+        font-size: 18px;
+    }
+    
+    .page-header h1 {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+    
+    .page-header p {
+        font-size: 14px;
+    }
+    
+    /* Footer - Küçük ekranlar */
+    .footer {
+        padding: 30px 0 100px;
+    }
+    
+    .footer-bottom {
+        padding: 10px 12px;
+        font-size: 10px;
+    }
+    
+    /* Product Detail - Küçük ekranlar */
+    .product-detail-info h1 {
+        font-size: 28px;
+    }
+    
+    .product-price-large {
+        font-size: 36px;
+    }
+    
+    .product-description p {
+        font-size: 14px;
+    }
+    
+    /* Cart Modal - Küçük ekranlar */
+    .cart-modal-content {
+        width: 100%;
+        max-width: 100vw;
+    }
+    
+    .cart-header {
+        padding: 20px;
+    }
+    
+    .cart-body {
+        padding: 15px 20px;
+    }
+    
+    .cart-item {
+        gap: 12px;
+    }
+    
+    .cart-item img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .cart-footer {
+        padding: 20px;
+    }
+    
+    /* WhatsApp Button - Küçük ekranlar */
     .whatsapp-button {
-        width: 56px;
-        height: 56px;
-        bottom: 20px;
-        right: 20px;
+        width: 50px;
+        height: 50px;
+        bottom: 80px;
+        right: 15px;
     }
     
     .whatsapp-button svg {
-        width: 28px;
-        height: 28px;
+        width: 26px;
+        height: 26px;
+    }
+    
+    /* View Product Button - Küçük ekranlar */
+    .product-card .view-product-btn {
+        padding: 7px 18px;
+        font-size: 11px;
+    }
+    
+    /* Feature Cards - Küçük ekranlar */
+    .feature-card {
+        padding: 25px 15px;
+    }
+    
+    .feature-card h3 {
+        font-size: 16px;
+    }
+    
+    .feature-card p {
+        font-size: 13px;
+    }
+    
+    /* Announcement Bar - Küçük ekranlar */
+    .announcement-bar {
+        font-size: 11px;
+        padding: 7px 10px;
+    }
+    
+    /* Features Grid - Küçük ekranlar */
+    .features-grid {
+        gap: 15px;
     }
 }
 
