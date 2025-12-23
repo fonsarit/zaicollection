@@ -122,19 +122,37 @@ function displayCart() {
 }
 
 // Checkout function
-function checkout() {
+async function checkout() {
     const cart = getCart();
     if (cart.length === 0) {
         alert('Sepetiniz boş!');
         return;
     }
     
-    // TODO: Redirect to iyzico payment link
-    // For now, show alert
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    alert(`Toplam: ${total}₺\n\nÖdeme sistemi yakında aktif olacak!`);
+    // İyzico payment config'i import et
+    const { iyzicoCategoryLinks, defaultPaymentLink } = await import('./payment-config.js');
     
-    // Example: window.location.href = 'https://pay.iyzico.com/your-payment-link';
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    
+    // Sepet için özel link varsa onu kullan, yoksa genel linki kullan
+    const paymentLink = iyzicoCategoryLinks['cart'] || defaultPaymentLink;
+    
+    // Eğer link henüz ayarlanmamışsa uyarı göster
+    if (paymentLink.includes('YOUR_LINK_HERE') || paymentLink.includes('YOUR_DEFAULT_LINK_HERE') || 
+        paymentLink.includes('YOUR_CART_LINK_HERE')) {
+        alert(`Toplam: ${total}₺\n\nÖdeme linki henüz ayarlanmamış. Lütfen payment-config.js dosyasını düzenleyin.`);
+        return;
+    }
+    
+    // İyzico ödeme sayfasına yönlendir
+    // Sepet bilgilerini URL parametresi olarak gönder (İyzico'da görebilirsiniz)
+    const params = new URLSearchParams({
+        total: total,
+        items: cart.length,
+        cart: JSON.stringify(cart.map(item => ({ name: item.name, price: item.price, quantity: item.quantity })))
+    });
+    
+    window.location.href = `${paymentLink}?${params.toString()}`;
 }
 
 // Show notification

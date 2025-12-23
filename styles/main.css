@@ -1405,8 +1405,17 @@ body:not(.home) .social-btn:hover svg {
         gap: 20px;
     }
     
+    /* Product Card - Mobil için standart genişlik/yükseklik */
+    .product-card {
+        aspect-ratio: 1 / 1.2;
+        overflow: hidden;
+    }
+    
     .product-image {
-        height: 250px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
     
     .product-info {
@@ -1677,8 +1686,17 @@ body:not(.home) .social-btn:hover svg {
         gap: 20px;
     }
     
+    /* Product Card - Küçük ekranlar için standart genişlik/yükseklik */
+    .product-card {
+        aspect-ratio: 1 / 1.2;
+        overflow: hidden;
+    }
+    
     .product-image {
-        height: 280px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
     
     .product-info {

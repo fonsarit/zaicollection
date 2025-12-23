@@ -1,5 +1,6 @@
 // Import products data
 import { products } from './data.js';
+import { iyzicoCategoryLinks, iyzicoSpecialProductLinks, defaultPaymentLink } from './payment-config.js';
 
 // Load Featured Products on Home Page
 function loadFeaturedProducts() {
@@ -37,11 +38,31 @@ function buyProduct(productId) {
     const product = products.find(p => p.id === productId);
     if (!product) return;
 
-    // TODO: Replace with actual iyzico iyzilink URL
-    // For now, show alert
-    alert(`Ürün: ${product.name}\nFiyat: ${product.price}₺\n\nÖdeme sistemi yakında aktif olacak!`);
+    // Önce özel ürün linkini kontrol et (varsa)
+    let paymentLink = iyzicoSpecialProductLinks[productId];
     
-    // Example: window.location.href = 'https://pay.iyzico.com/your-payment-link';
+    // Özel link yoksa kategori linkini kullan
+    if (!paymentLink) {
+        paymentLink = iyzicoCategoryLinks[product.category] || defaultPaymentLink;
+    }
+    
+    // Eğer link henüz ayarlanmamışsa uyarı göster
+    if (paymentLink.includes('YOUR_LINK_HERE') || paymentLink.includes('YOUR_DEFAULT_LINK_HERE') || 
+        paymentLink.includes('YOUR_AGENDA_LINK_HERE') || paymentLink.includes('YOUR_CHARM_LINK_HERE') ||
+        paymentLink.includes('YOUR_CART_LINK_HERE')) {
+        alert(`Ürün: ${product.name}\nFiyat: ${product.price}₺\n\nÖdeme linki henüz ayarlanmamış. Lütfen payment-config.js dosyasını düzenleyin.`);
+        return;
+    }
+    
+    // Ürün bilgilerini URL parametresi olarak ekle (İyzico'da görebilirsiniz)
+    const params = new URLSearchParams({
+        product: product.name,
+        price: product.price,
+        id: productId
+    });
+    
+    // İyzico ödeme sayfasına yönlendir
+    window.location.href = `${paymentLink}?${params.toString()}`;
 }
 
 // Newsletter Form Handler
