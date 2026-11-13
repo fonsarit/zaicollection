@@ -1,4 +1,5 @@
 // Cart System using LocalStorage
+import { iyzicoCategoryLinks, defaultPaymentLink } from './payment-config.js';
 
 // Get cart from localStorage
 function getCart() {
@@ -129,9 +130,6 @@ async function checkout() {
         return;
     }
     
-    // İyzico payment config'i import et
-    const { iyzicoCategoryLinks, defaultPaymentLink } = await import('./payment-config.js');
-    
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     
     // Sepet için özel link varsa onu kullan, yoksa genel linki kullan
@@ -187,3 +185,5 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
 });
 
+// HTML'deki onclick'ler için global yap (modül olarak yüklendiği için)
+Object.assign(window, { addToCart, removeFromCart, updateQuantity, toggleCart, checkout, showNotification });
